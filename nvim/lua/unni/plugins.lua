@@ -22,8 +22,18 @@ require("lazy").setup({
     "tpope/vim-abolish",
     "vim-test/vim-test",
     "nvim-tree/nvim-web-devicons",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+
+    -- " For luasnip users.
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
     {
-	'numToStr/Comment.nvim',
+	"numToStr/Comment.nvim",
 	opts = {
 	    -- add any options here
 	},
@@ -48,15 +58,15 @@ require("lazy").setup({
         end
      },
      {
-         'nvim-telescope/telescope.nvim', tag = '0.1.5',
+         "nvim-telescope/telescope.nvim", tag = '0.1.5',
           dependencies = { 'nvim-lua/plenary.nvim' }
      },
      {
-         'nvim-lualine/lualine.nvim',
+         "nvim-lualine/lualine.nvim",
          dependencies = { 'nvim-tree/nvim-web-devicons' },
      },
      {
-	 'AlexvZyl/nordic.nvim',
+	 "AlexvZyl/nordic.nvim",
 	 lazy = false,
 	 priority = 1000,
 	 config = function()

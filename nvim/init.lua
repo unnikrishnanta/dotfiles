@@ -8,8 +8,8 @@
 --   ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░
 --         ░    ░  ░    ░ ░        ░   ░         ░
 
-require('unni/plugins')
 require('unni/settings')
+require('unni/plugins')
 require('unni/plugin_settings')
 require('unni/keybindings')
 require('unni/functions')
