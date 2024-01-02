@@ -28,16 +28,15 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
-
     -- " For luasnip users.
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     {
-	"numToStr/Comment.nvim",
-	opts = {
-	    -- add any options here
-	},
-	lazy = false,
+        "numToStr/Comment.nvim",
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
     },
     { "ms-jpq/chadtree", branch = "chad", build = "python3 -m chadtree deps" },
     {
@@ -66,11 +65,23 @@ require("lazy").setup({
          dependencies = { 'nvim-tree/nvim-web-devicons' },
      },
      {
-	 "AlexvZyl/nordic.nvim",
-	 lazy = false,
-	 priority = 1000,
-	 config = function()
-	     require 'nordic' .load()
-	 end
+        "AlexvZyl/nordic.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require 'nordic' .load()
+        end
+     },
+     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+     {
+       'projekt0n/github-nvim-theme',
+       lazy = false, -- make sure we load this during startup if it is your main colorscheme
+       priority = 1000, -- make sure to load this before all the other start plugins
+       config = function()
+         require('github-theme').setup({
+           -- ...
+         })
+         -- vim.cmd('colorscheme github_dark')
+       end,
      }
 })

@@ -1,10 +1,13 @@
 require('lualine').setup {
-  options = { theme  = 'nord' },
+  options = { theme  = 'base16' },
 }
 
 
 local chadtree_settings = {
-    theme = {text_colour_set =  "nord"},
+    theme = {
+        text_colour_set =  "nord",
+        icon_glyph_set = "devicons"
+    },
 }
 vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
 
@@ -78,3 +81,4 @@ require("luasnip.loaders.from_vscode").lazy_load()
   require('lspconfig')['jedi_language_server'].setup {
     capabilities = capabilities
   }
+
