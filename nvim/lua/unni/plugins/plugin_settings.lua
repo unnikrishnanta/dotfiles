@@ -20,6 +20,19 @@ require('telescope').load_extension('fzf')
 require('leap').create_default_mappings()
 
 
+local current_day = os.date("%A")
+local veil_builtin = require("veil.builtin")
+
+require('veil').setup({
+  sections = {
+    veil_builtin.sections.animated(veil_builtin.headers.frames_days_of_week[current_day], {
+      hl = { fg = "#5de4c7" },
+    }),
+    -- other sections
+    -- ...
+  }
+})
+
 require("neotest").setup({
   adapters = {
     require("neotest-python")({
