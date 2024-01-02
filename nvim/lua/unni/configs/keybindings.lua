@@ -68,6 +68,12 @@ tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
 
+nnoremap <S-Up> <C-w>+
+nnoremap <S-Down> <C-w>-
+nnoremap <S-Right> <C-w>>
+nnoremap <S-Left> <C-w><
+
+
 nnoremap <CR> :noh<CR><CR>
 nnoremap S :keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>
 

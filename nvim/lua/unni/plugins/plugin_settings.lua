@@ -17,6 +17,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 
+require('leap').create_default_mappings()
 
 
 require("neotest").setup({
