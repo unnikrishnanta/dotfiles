@@ -1,8 +1,3 @@
-require('lualine').setup {
-  options = { theme  = 'base16' },
-}
-
-
 local chadtree_settings = {
     theme = {
         text_colour_set =  "nord",
@@ -11,8 +6,17 @@ local chadtree_settings = {
 }
 vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
 
+require('lualine').setup {
+  options = { theme  = 'iceberg_dark' },
+}
+
 -- https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#add-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
+
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
+
 
 
 -- Completion engine settings
@@ -23,10 +27,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       end,
     },
     window = {
@@ -42,8 +43,9 @@ require("luasnip.loaders.from_vscode").lazy_load()
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'ultisnips' }, -- For ultisnips users.
-    }, {
+      { name = 'luasnip' }, -- For luasnip users
+    },
+    {
       { name = 'buffer' },
     })
   })
