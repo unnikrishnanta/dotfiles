@@ -18,3 +18,16 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require('telescope').load_extension('fzf')
 
 
+
+require("neotest").setup({
+  adapters = {
+    require("neotest-python")({
+        -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
+        dap = { justMyCode = false },
+        args = {"--log-level", "DEBUG"},
+        -- Runner to use. Will use pytest if available by default.
+        runner = "pytest",
+        python = "/Users/ukrishnan/miniconda3/bin/python",
+    })
+  }
+})

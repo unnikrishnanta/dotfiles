@@ -41,6 +41,15 @@ vim.keymap.set('n', '<leader>bf', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 
+-- Neotest keybindings
+vim.keymap.set('n', '<leader>tf', '<cmd>lua require("neotest").run.run(vim.fn.expand("%")) <cr>' , {})
+vim.keymap.set('n', '<leader>tr', '<cmd>lua require("neotest").run.run() <CR>' , {})
+vim.keymap.set('n', '<leader>to', '<cmd>lua require("neotest").output.open({ enter = true, short = false })<cr>' , {})
+vim.keymap.set('n', '<leader>tx', '<cmd>lua require("neotest").run.stop() <cr>' , {})
+vim.keymap.set('n', '<leader>ts', '<cmd>lua require("neotest").summary.toggle() <cr>' , {})
+
+
+
 -- Old keybindings yet to be ported.
 vim.cmd([[
 
