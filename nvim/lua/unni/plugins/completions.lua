@@ -23,6 +23,7 @@
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' }, -- For luasnip users
+      { name = 'path' },
     },
     {
       { name = 'buffer' },
@@ -59,7 +60,7 @@
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Python with jedi
-  require('lspconfig')['jedi_language_server'].setup {
+  require('lspconfig').jedi_language_server.setup {
     capabilities = capabilities
   }
 

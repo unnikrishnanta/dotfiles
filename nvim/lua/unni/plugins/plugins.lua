@@ -112,6 +112,6 @@ require("lazy").setup({
       config = true,
       -- or configure with:
       -- opts = { ... }
-    }
+    },
     
 })
