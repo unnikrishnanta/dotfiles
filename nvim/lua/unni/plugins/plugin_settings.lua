@@ -19,6 +19,8 @@ require('telescope').load_extension('fzf')
 
 require('leap').create_default_mappings()
 
+require('incline').setup()
+
 
 local current_day = os.date("%A")
 local veil_builtin = require("veil.builtin")

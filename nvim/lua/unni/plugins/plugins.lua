@@ -32,6 +32,8 @@ require("lazy").setup({
     -- " For luasnip users.
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
+    'folke/lsp-colors.nvim',
+    "b0o/incline.nvim",
     {
         "numToStr/Comment.nvim",
         opts = {
@@ -113,5 +115,12 @@ require("lazy").setup({
       -- or configure with:
       -- opts = { ... }
     },
+    {
+     "folke/trouble.nvim",
+     dependencies = { "nvim-tree/nvim-web-devicons" },
+     opts = {
+        use_diagnostic_signs = true
+     },
+    }
     
 })

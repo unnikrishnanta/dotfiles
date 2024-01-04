@@ -47,3 +47,7 @@ set.autoread = true -- autoread files
 set.mouse = "a" -- use mouse for scroll or window size
 -- save only current buffer when focus is lost
 
+-- Use a global statusline
+set.laststatus = 3
+
+

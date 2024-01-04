@@ -19,3 +19,31 @@ vim.cmd(
 )
 
 
+vim.fn.sign_define(
+  'DiagnosticSignError',
+  { text = '', texthl = 'LspDiagnosticsDefaultError' }
+)
+
+vim.fn.sign_define(
+  'DiagnosticSignWarn',
+  { text = '', texthl = 'LspDiagnosticsDefaultWarning' }
+)
+
+vim.fn.sign_define(
+  'DiagnosticSignInfo',
+  { text = '', texthl = 'LspDiagnosticsDefaultInformation' }
+)
+
+vim.fn.sign_define(
+  'DiagnosticSignHint',
+  { text = '', texthl = 'LspDiagnosticsDefaultHint' }
+)
+
+
+-- Required to make luasnip work with nvim-comp
+local luasnip = require'luasnip'
+vim.keymap.set({"i", "s"}, "<c-k>", function()
+	if luasnip.expand_or_jumpable() then
+		luasnip.expand_or_jump()
+	end
+end, {silent = true})

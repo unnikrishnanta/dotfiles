@@ -10,8 +10,8 @@
       end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -60,7 +60,7 @@
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Python with jedi
-  require('lspconfig').jedi_language_server.setup {
+  require('lspconfig').pyright.setup {
     capabilities = capabilities
   }
 
