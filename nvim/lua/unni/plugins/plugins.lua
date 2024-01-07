@@ -41,7 +41,10 @@ require("lazy").setup({
         },
         lazy = false,
     },
-    { "ms-jpq/chadtree", branch = "chad", build = "python3 -m chadtree deps" },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    },
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
@@ -76,6 +79,13 @@ require("lazy").setup({
         end
      },
      { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+     { "rebelot/kanagawa.nvim" },
+     {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+     },
      {
        'projekt0n/github-nvim-theme',
        lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -121,6 +131,6 @@ require("lazy").setup({
      opts = {
         use_diagnostic_signs = true
      },
-    }
+    },
     
 })

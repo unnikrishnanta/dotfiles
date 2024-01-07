@@ -1,7 +1,7 @@
 local chadtree_settings = {
     theme = {
-        text_colour_set =  "nord",
-        icon_glyph_set = "devicons"
+        icon_glyph_set = "devicons",
+        text_colour_set = "env"
     },
 }
 vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
@@ -16,6 +16,13 @@ require("luasnip.loaders.from_vscode").lazy_load()
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+require('telescope').setup {
+  extensions = {
+    file_browser = {
+        -- use the "ivy" theme if you want
+    }
+  }
+}
 
 require('leap').create_default_mappings()
 

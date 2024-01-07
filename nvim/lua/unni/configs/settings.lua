@@ -50,4 +50,4 @@ set.mouse = "a" -- use mouse for scroll or window size
 -- Use a global statusline
 set.laststatus = 3
 
-
+vim.cmd("colorscheme kanagawa")
