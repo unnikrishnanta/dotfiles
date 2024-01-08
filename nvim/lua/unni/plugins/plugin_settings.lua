@@ -1,14 +1,43 @@
-local chadtree_settings = {
-    theme = {
-        icon_glyph_set = "devicons",
-        text_colour_set = "env"
-    },
-}
-vim.api.nvim_set_var("chadtree_settings", chadtree_settings)
-
 require('lualine').setup {
-  options = { theme  = 'iceberg_dark' },
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diagnostics', 'diff'},
+    lualine_c = {'filename'},
+    lualine_x = {'filetype'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {'progress'}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
 }
+
 
 -- https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#add-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
