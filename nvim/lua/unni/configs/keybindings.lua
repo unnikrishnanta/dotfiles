@@ -79,8 +79,21 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 end, {silent = true})
 
 
+-- Disable the use of arrow keys
+vim.cmd([[
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
+inoremap <Left>  <ESC>:echoe "Use h"<CR>
+inoremap <Right> <ESC>:echoe "Use l"<CR>
+inoremap <Up>    <ESC>:echoe "Use k"<CR>
+inoremap <Down>  <ESC>:echoe "Use j"<CR>
+]])
+
 -- Old keybindings yet to be ported.
 vim.cmd([[
+
 
 nnoremap <silent> <leader>w :update<CR>
 nnoremap <silent> <leader>q :q<CR>
@@ -105,5 +118,7 @@ nnoremap <S-Left> <C-w><
 
 nnoremap <CR> :noh<CR><CR>
 nnoremap S :keeppatterns substitute/\s*\%#\s*/\r/e <bar> normal! ==<CR>
+
+vnoremap <leader>gs "hy:%s/<C-r>h//gc<left><left><left>
 
 ]])

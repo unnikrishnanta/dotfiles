@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "tpope/vim-surround",
     "tpope/vim-fugitive",
+    "airblade/vim-gitgutter",
     "tpope/vim-unimpaired",
     "junegunn/fzf",
     "junegunn/fzf.vim",
