@@ -60,7 +60,7 @@
 
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Python with jedi
+  -- Python with pyright
   require('lspconfig').pyright.setup {
     capabilities = capabilities
   }
