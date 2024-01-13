@@ -38,6 +38,8 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 
+-- NvimTreeToggle
+vim.keymap.set('n', '<leader>fs', require "nvim-tree.api".tree.toggle, {})
 
 
 -- Telescope keybindings
