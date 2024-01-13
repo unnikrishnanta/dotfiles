@@ -127,5 +127,10 @@ require("lazy").setup({
         use_diagnostic_signs = true
      },
     },
+    {
+        "gbprod/substitute.nvim",
+        config = function()
+        end
+    },
     
 })

@@ -56,7 +56,7 @@ require('telescope').setup {
 require('leap').create_default_mappings()
 
 require('incline').setup()
-
+require 'substitute'.setup()
 
 local current_day = os.date("%A")
 local veil_builtin = require("veil.builtin")

@@ -79,6 +79,15 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 end, {silent = true})
 
 
+vim.keymap.set({'n', 'x', 'o'}, '<leader>l', '<Plug>(leap-forward)')
+vim.keymap.set({'n', 'x', 'o'}, '<leader>L', '<Plug>(leap-backward)')
+
+
+-- substitute keybindings
+vim.keymap.set("n", "s", require('substitute').operator, { noremap = true })
+vim.keymap.set("n", "ss", require('substitute').line, { noremap = true })
+vim.keymap.set("x", "s", require('substitute').visual, { noremap = true })
+
 -- Disable the use of arrow keys
 vim.cmd([[
 nnoremap <Left>  :echoe "Use h"<CR>
