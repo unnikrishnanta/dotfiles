@@ -19,7 +19,7 @@ require("lazy").setup({
     "junegunn/fzf",
     "junegunn/fzf.vim",
     "tpope/vim-repeat",
-    "rafamadriz/friendly-snippets", 
+    "rafamadriz/friendly-snippets",
     "tpope/vim-abolish",
     "vim-test/vim-test",
     "nvim-tree/nvim-web-devicons",
@@ -34,6 +34,7 @@ require("lazy").setup({
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     'folke/lsp-colors.nvim',
+    'rafcamlet/nvim-luapad',
     "b0o/incline.nvim",
     {
         "numToStr/Comment.nvim",
@@ -49,7 +50,7 @@ require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        config = function () 
+        config = function ()
           local configs = require("nvim-treesitter.configs")
 
           configs.setup({
@@ -59,7 +60,7 @@ require("lazy").setup({
               },
               sync_install = false,
               highlight = { enable = true },
-              indent = { enable = true },  
+              indent = { enable = true },
             })
         end
      },
@@ -82,21 +83,10 @@ require("lazy").setup({
      { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
      { "rebelot/kanagawa.nvim" },
      {
-       'projekt0n/github-nvim-theme',
-       lazy = false, -- make sure we load this during startup if it is your main colorscheme
-       priority = 1000, -- make sure to load this before all the other start plugins
-       config = function()
-         require('github-theme').setup({
-           -- ...
-         })
-         -- vim.cmd('colorscheme github_dark')
-       end,
-     },
-     {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     },
-    { 
+    {
       "nvim-neotest/neotest",
       dependencies = {
         "nvim-lua/plenary.nvim",
@@ -105,20 +95,6 @@ require("lazy").setup({
         "nvim-neotest/neotest-python",
         "nvim-neotest/neotest-plenary"
       }
-    },
-    {
-      'willothy/veil.nvim',
-      lazy = true,
-      dependencies = {
-        -- All optional, only required for the default setup.
-        -- If you customize your config, these aren't necessary.
-        "nvim-telescope/telescope.nvim",
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-file-browser.nvim"
-      },
-      config = true,
-      -- or configure with:
-      -- opts = { ... }
     },
     {
      "folke/trouble.nvim",
@@ -143,5 +119,5 @@ require("lazy").setup({
         require("nvim-tree").setup {}
       end,
     }
-    
+
 })

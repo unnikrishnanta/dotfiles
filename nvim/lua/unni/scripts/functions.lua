@@ -39,3 +39,9 @@ vim.fn.sign_define(
   { text = '', texthl = 'LspDiagnosticsDefaultHint' }
 )
 
+-- delete trailing whitespaces on BufWritePre
+-- https://vi.stackexchange.com/a/37427/23752
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
