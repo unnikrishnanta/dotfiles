@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "tpope/vim-surround",
     "tpope/vim-fugitive",
-    "airblade/vim-gitgutter",
     "tpope/vim-unimpaired",
     "junegunn/fzf",
     "junegunn/fzf.vim",
@@ -118,6 +117,38 @@ require("lazy").setup({
       config = function()
         require("nvim-tree").setup {}
       end,
+    },
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      dependencies = {
+           "nvim-treesitter/nvim-treesitter",
+      }
+    },
+    {
+      'pwntester/octo.nvim',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim',
+        'nvim-tree/nvim-web-devicons',
+      },
+      config = function ()
+        require"octo".setup()
+      end
+    },
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
+    },
+    {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      opts = {
+      },
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify",
+        }
     }
-
 })
