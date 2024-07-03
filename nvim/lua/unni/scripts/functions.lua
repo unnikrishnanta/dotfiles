@@ -45,3 +45,14 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+
+
+function fuzzyFindFiles()
+  require('telescope.builtin').grep_string({
+    path_display = { 'smart' },
+    only_sort_text = true,
+    word_match = "-w",
+    search = '',
+  })
+end

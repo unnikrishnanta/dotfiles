@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<C-d>', vim.lsp.buf.signature_help, opts)
 
     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
@@ -45,7 +45,8 @@ vim.keymap.set('n', '<leader>fs', require "nvim-tree.api".tree.toggle, {})
 -- Telescope keybindings
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>ag', builtin.live_grep, {})
+-- vim.keymap.set('n', '<leader>ag', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>ag', '<cmd>lua fuzzyFindFiles{}<cr>', {}) 
 vim.keymap.set('n', '<leader>bf', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
@@ -90,16 +91,26 @@ vim.keymap.set("n", "s", require('substitute').operator, { noremap = true })
 vim.keymap.set("n", "ss", require('substitute').line, { noremap = true })
 vim.keymap.set("x", "s", require('substitute').visual, { noremap = true })
 
+
+
+
+-- https://github.com/Almo7aya/openingh.nvim
+-- for repository page
+vim.api.nvim_set_keymap("n", "<Leader>gor", ":OpenInGHRepo <CR>", { silent = true, noremap = true })
+-- for current file page
+vim.api.nvim_set_keymap("n", "<Leader>gof", ":OpenInGHFile <CR>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>gol", ":OpenInGHFileLines <CR>", { silent = true, noremap = true })
+
 -- Disable the use of arrow keys
 vim.cmd([[
-nnoremap <Left>  :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up>    :echoe "Use k"<CR>
-nnoremap <Down>  :echoe "Use j"<CR>
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
+nnoremap <Left>  <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up>    <Nop>
+nnoremap <Down>  <Nop>
+" inoremap <Left>  <ESC>:echoe "Use h"<CR>
+" inoremap <Right> <ESC>:echoe "Use l"<CR>
+" inoremap <Up>    <ESC>:echoe "Use k"<CR>
+" inoremap <Down>  <ESC>:echoe "Use j"<CR>
 ]])
 
 -- Old keybindings yet to be ported.

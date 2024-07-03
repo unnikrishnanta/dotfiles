@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -50,57 +50,57 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function ()
-          local configs = require("nvim-treesitter.configs")
+            local configs = require("nvim-treesitter.configs")
 
-          configs.setup({
-              ensure_installed = {
-                  "c", "lua", "vim", "vimdoc", "query", "python", "sql",
-                  "terraform", "json", "git_config"
-              },
-              sync_install = false,
-              highlight = { enable = true },
-              indent = { enable = true },
+            configs.setup({
+                ensure_installed = {
+                    "c", "lua", "vim", "vimdoc", "query", "python", "sql",
+                    "terraform", "json", "git_config"
+                },
+                sync_install = false,
+                highlight = { enable = true },
+                indent = { enable = true },
             })
         end
-     },
-     {
-         "nvim-telescope/telescope.nvim", tag = '0.1.5',
-          dependencies = { 'nvim-lua/plenary.nvim' }
-     },
-     {
-         "nvim-lualine/lualine.nvim",
-         dependencies = { 'nvim-tree/nvim-web-devicons' },
-     },
-     {
+    },
+    {
+        "nvim-telescope/telescope.nvim", tag = '0.1.5',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
+    {
         "AlexvZyl/nordic.nvim",
         lazy = false,
         priority = 1000,
         config = function()
             require 'nordic' .load()
         end
-     },
-     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-     { "rebelot/kanagawa.nvim" },
-     {
+    },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "rebelot/kanagawa.nvim" },
+    {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     },
     {
-      "nvim-neotest/neotest",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "antoinemadec/FixCursorHold.nvim",
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-neotest/neotest-python",
-        "nvim-neotest/neotest-plenary"
-      }
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-neotest/neotest-python",
+            "nvim-neotest/neotest-plenary"
+        }
     },
     {
-     "folke/trouble.nvim",
-     dependencies = { "nvim-tree/nvim-web-devicons" },
-     opts = {
-        use_diagnostic_signs = true
-     },
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            use_diagnostic_signs = true
+        },
     },
     {
         "gbprod/substitute.nvim",
@@ -108,32 +108,32 @@ require("lazy").setup({
         end
     },
     {
-      "nvim-tree/nvim-tree.lua",
-      version = "*",
-      lazy = false,
-      dependencies = {
-        "nvim-tree/nvim-web-devicons",
-      },
-      config = function()
-        require("nvim-tree").setup {}
-      end,
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end,
     },
     {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      dependencies = {
-           "nvim-treesitter/nvim-treesitter",
-      }
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        }
     },
     {
-      'pwntester/octo.nvim',
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope.nvim',
-        'nvim-tree/nvim-web-devicons',
-      },
-      config = function ()
-        require"octo".setup()
-      end
+        'pwntester/octo.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function ()
+            require"octo".setup()
+        end
     },
     {
         'lewis6991/gitsigns.nvim',
@@ -142,13 +142,16 @@ require("lazy").setup({
         end
     },
     {
-      "folke/noice.nvim",
-      event = "VeryLazy",
-      opts = {
-      },
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+        },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
         }
-    }
+    },
+    { 'RRethy/nvim-treesitter-textsubjects' },
+    { 'endel/vim-github-colorscheme' },
+    { 'almo7aya/openingh.nvim' },
 })
