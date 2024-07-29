@@ -92,7 +92,8 @@ require("lazy").setup({
             "antoinemadec/FixCursorHold.nvim",
             "nvim-treesitter/nvim-treesitter",
             "nvim-neotest/neotest-python",
-            "nvim-neotest/neotest-plenary"
+            "nvim-neotest/neotest-plenary",
+	    "nvim-neotest/nvim-nio"
         }
     },
     {
@@ -123,17 +124,6 @@ require("lazy").setup({
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         }
-    },
-    {
-        'pwntester/octo.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = function ()
-            require"octo".setup()
-        end
     },
     {
         'lewis6991/gitsigns.nvim',

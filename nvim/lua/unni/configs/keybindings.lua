@@ -46,7 +46,7 @@ vim.keymap.set('n', '<leader>fs', require "nvim-tree.api".tree.toggle, {})
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 -- vim.keymap.set('n', '<leader>ag', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>ag', '<cmd>lua fuzzyFindFiles{}<cr>', {}) 
+vim.keymap.set('n', '<leader>ag', '<cmd>lua fuzzyFindFiles{}<cr>', {})
 vim.keymap.set('n', '<leader>bf', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
