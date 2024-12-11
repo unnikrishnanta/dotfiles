@@ -15,7 +15,7 @@ require('lualine').setup {
       statusline = 1000,
       tabline = 1000,
       winbar = 1000,
-    }
+    },
   },
   sections = {
     lualine_a = {'mode'},
@@ -93,7 +93,7 @@ require("neotest").setup({
         args = {"--log-level", "DEBUG"},
         -- Runner to use. Will use pytest if available by default.
         runner = "pytest",
-        python = "/Users/ukrishnan/miniconda3/bin/python",
+        python = "/Users/ukrishnan/.pyenv/shims/python",
     })
   }
 })

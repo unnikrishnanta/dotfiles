@@ -102,6 +102,39 @@ require("lazy").setup({
         opts = {
             use_diagnostic_signs = true
         },
+        cmd = "Trouble",
+        keys = {
+            {
+                "<leader>xX",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+            {
+                "<leader>xx",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Buffer Diagnostics (Trouble)",
+            },
+            {
+                "<leader>cs",
+                "<cmd>Trouble symbols toggle focus=false<cr>",
+                desc = "Symbols (Trouble)",
+            },
+            {
+                "<leader>cl",
+                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+                desc = "LSP Definitions / references / ... (Trouble)",
+            },
+            {
+                "<leader>xL",
+                "<cmd>Trouble loclist toggle<cr>",
+                desc = "Location List (Trouble)",
+            },
+            {
+                "<leader>xQ",
+                "<cmd>Trouble qflist toggle<cr>",
+                desc = "Quickfix List (Trouble)",
+            },
+        },
     },
     {
         "gbprod/substitute.nvim",
@@ -144,4 +177,37 @@ require("lazy").setup({
     { 'RRethy/nvim-treesitter-textsubjects' },
     { 'endel/vim-github-colorscheme' },
     { 'almo7aya/openingh.nvim' },
+    {
+      "folke/todo-comments.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      opts = {
+      }
+    },
+    {
+      "linux-cultist/venv-selector.nvim",
+        dependencies = {
+          "neovim/nvim-lspconfig",
+          "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
+          { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+        },
+      lazy = false,
+      branch = "regexp", -- This is the regexp branch, use this for the new version
+      config = function()
+          require("venv-selector").setup()
+        end,
+        keys = {
+            -- Keymap to open VenvSelector to pick a venv.
+            { '<leader>vs', '<cmd>VenvSelect<cr>' },
+            -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
+            { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
+        },
+    },
+    {
+        "lervag/vimtex",
+        lazy = false,     -- we don't want to lazy load VimTeX
+        init = function()
+            -- VimTeX configuration goes here, e.g.
+            vim.g.vimtex_view_method = "zathura"
+        end
+    },
 })
