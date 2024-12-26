@@ -39,12 +39,16 @@ vim.api.nvim_set_keymap(
 )
 
 -- NvimTreeToggle
-vim.keymap.set('n', '<leader>fs', require "nvim-tree.api".tree.toggle, {})
+-- vim.keymap.set('n', '<leader>fs', require "nvim-tree.api".tree.toggle, {})
+vim.keymap.set('n', '<leader>fs', require "oil".toggle_float, {})
+-- Mimic vim-vinegar method of navigating to the parent directory
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 
 -- Telescope keybindings
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>km', builtin.keymaps, {})
 -- vim.keymap.set('n', '<leader>ag', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>ag', '<cmd>lua fuzzyFindFiles{}<cr>', {})
 vim.keymap.set('n', '<leader>bf', builtin.buffers, {})
@@ -82,8 +86,8 @@ vim.keymap.set({"i", "s"}, "<C-E>", function()
 end, {silent = true})
 
 
-vim.keymap.set({'n', 'x', 'o'}, '<leader>l', '<Plug>(leap-forward)')
-vim.keymap.set({'n', 'x', 'o'}, '<leader>L', '<Plug>(leap-backward)')
+vim.keymap.set({'n', 'x', 'o'}, '<leader>lp', '<Plug>(leap-forward)')
+vim.keymap.set({'n', 'x', 'o'}, '<leader>Lp', '<Plug>(leap-backward)')
 
 
 -- substitute keybindings
@@ -92,6 +96,7 @@ vim.keymap.set("n", "ss", require('substitute').line, { noremap = true })
 vim.keymap.set("x", "s", require('substitute').visual, { noremap = true })
 
 
+vim.keymap.set({"n", "x"}, '<leader>ds', function() require('notify').dismiss() end)
 
 
 -- https://github.com/Almo7aya/openingh.nvim

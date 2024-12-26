@@ -35,6 +35,7 @@ require("lazy").setup({
     'folke/lsp-colors.nvim',
     'rafcamlet/nvim-luapad',
     "b0o/incline.nvim",
+    "kamykn/spelunker.vim",
     {
         "numToStr/Comment.nvim",
         opts = {
@@ -204,10 +205,58 @@ require("lazy").setup({
     },
     {
         "lervag/vimtex",
-        lazy = false,     -- we don't want to lazy load VimTeX
-        init = function()
-            -- VimTeX configuration goes here, e.g.
-            vim.g.vimtex_view_method = "zathura"
-        end
+        lazy = false, -- lazy-loading will disable inverse search
+        config = function()
+            vim.api.nvim_create_autocmd({ "FileType" }, {
+                group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
+                pattern = { "bib", "tex" },
+                callback = function()
+                    vim.wo.conceallevel = 0
+                end,
+            })
+            vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
+            vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
+
+            vim.g.vimtex_view_method = "skim" -- <== macos specific, you can use zathura or sumatra or something else.
+            vim.g.vimtex_view_skim_sync = 1
+            vim.g.vimtex_view_skim_activate = 1
+            vim.g.vimtex_view_skim_reading_bar = 1
+
+            vim.g.vimtex_compiler_latexmk = {
+                aux_dir = "./aux",
+                out_dir = "./out",
+            }
+
+        end,
     },
+    {
+      'stevearc/oil.nvim',
+      ---@module 'oil'
+      ---@type oil.SetupOpts
+      opts = {},
+      -- Optional dependencies
+      dependencies = { { "echasnovski/mini.icons", opts = {} } },
+      -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+      config = function()
+            require("oil").setup()
+      end,
+    },
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+      },
+    }
 })
