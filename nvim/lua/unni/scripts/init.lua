@@ -1,2 +1,0 @@
-require('unni/scripts/functions')
-
