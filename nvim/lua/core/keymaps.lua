@@ -52,7 +52,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   vim.keymap.set('n', '<leader>ag', '<cmd>lua fuzzyFindFiles{}<cr>', {})
   vim.keymap.set('n', '<leader>bf', builtin.buffers, {})
   vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-  vim.keymap.set('n', '<leader>ag', '<cmd>lua fuzzyFindFiles{}<cr>', {})
 
 
   -- Neotest keybindings

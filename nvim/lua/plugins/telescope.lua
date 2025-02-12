@@ -7,7 +7,7 @@ return {
       config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
-  
+
         telescope.setup({
           defaults = {
             prompt_prefix = "🔍 ",
@@ -21,4 +21,8 @@ return {
         telescope.load_extension("fzf")
       end
     },
-  } 
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+}

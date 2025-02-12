@@ -27,7 +27,33 @@ return {
     },
     {
         "gbprod/substitute.nvim",
+        opts = {
+        }
+    },
+    {
+        "nvim-neotest/neotest",
         config = function()
-        end
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-python")({
+                        -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
+                        dap = { justMyCode = false },
+                        args = {"--log-level", "DEBUG"},
+                        -- Runner to use. Will use pytest if available by default.
+                        runner = "pytest",
+                        python = "/Users/ukrishnan/.pyenv/shims/python",
+                    })
+                }
+            })
+        end,
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-neotest/neotest-python",
+            "nvim-neotest/neotest-plenary",
+            "nvim-neotest/nvim-nio"
+        },
     },
 }
