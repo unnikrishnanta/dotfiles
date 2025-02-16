@@ -1,5 +1,12 @@
 return {
     {
+      "L3MON4D3/LuaSnip",
+      dependencies = { "rafamadriz/friendly-snippets" },
+      config = function()
+        require("luasnip/loaders/from_vscode").load()
+      end,
+    },
+    {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
@@ -28,28 +35,22 @@ return {
                     { name = 'luasnip' }, -- For luasnip users
                     { name = 'path' },
                     { name = 'nvim_lsp_signature_help' },
-                },
-                    {
-                        { name = 'buffer' },
-                    })
-            })
-
-            -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-            cmp.setup.cmdline({ '/', '?' }, {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' }
-                }
+                    { name = 'buffer' },
+                }),
+                mapping = cmp.mapping.preset.insert({
+                }),
             })
 
             -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
             cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
+                mapping = cmp.mapping.preset.cmdline({
+                        -- Your configuration here.
+                }),
                 sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                        { name = 'cmdline' }
-                    })
+                    { name = 'path' },
+                    { name = 'cmdline' },
+                    { name = 'buffer' }
+                })
             })
 
             -- Set up lspconfig.
@@ -60,8 +61,5 @@ return {
             }
         end,
     },
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = { "rafamadriz/friendly-snippets" },
-    }
+    { 'saadparwaiz1/cmp_luasnip' },
 }
